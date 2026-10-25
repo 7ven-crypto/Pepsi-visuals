@@ -64,11 +64,11 @@ public final class R {
 		return mc.textRenderer.getWidth(s);
 	}
 
-	public static void play(SoundEvent e, float pitch) {
-		mc.getSoundManager().play(PositionedSoundInstance.master(e, pitch));
+		public static void play(SoundEvent e, float pitch) {
+		if (mc.player != null) mc.player.playSound(e, 1.0f, pitch);
 	}
 
 	public static void play(RegistryEntry<SoundEvent> e, float pitch) {
-		mc.getSoundManager().play(PositionedSoundInstance.master(e, pitch));
+		play(e.value(), pitch);
 	}
 }
